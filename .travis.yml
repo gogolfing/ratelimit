@@ -1,0 +1,23 @@
+language: go
+
+go:
+- 1.7
+
+notifications:
+  email:
+    recipients:
+    - eric.elsken@gmail.com
+    on_success: change
+    on_failure: change
+env:
+  global:
+    secure: GBhsEWa4lqGJ/Gsmsv4t2KGPGPRXlbaNjJgxicGNKfcWBZX5ohTrK8uwdsrkLbYjk1tbcPQr3GEVINu3qZqZy41Ak/WnHoeiRkXNmgYTKZjuCbLYw6Xgi+zR84jItVWtD80TRv1mnMW/fjWRMHNrY8qOja4cOfnIJzbL/ag/1+4nIN0xlx7k3amw83D1giCnMvjttNbpEuGTyi+aCiUk0D4KCLyOReOyD48uyCFCTkIAXD/CQBRSTEysYndlyh77LY3uerL/lS+lmrmi9/qFuCvE2PNYkYt07b6B1L0O+YSuWchjSXp//fHHgGJdSTPpvLAdqkmoDuaDhQrPAdCJilHF2MvuOC2fV85zYEa8C6EQ6+Crv9udBaKrD7DFTiqqBO74hROIrtbdXrgYJ+aaA+AkW5p3Apmk0yv9yCzstUTwtrCsAkvLKO6jLTDUBbjavqqVRMzccslkuu3PhACrqsKzx1Fzc1+exCRfzv3oVLO3qWPV71C9Uj0tLjw2+PbwWmn16+Th+Cs96dlqh4gD+fg91wj8X8E3s5WPjvtESUG6EgOAd0P0m3W9Nh+jBDSiuzrz4j6A6/bWmPjHpKocNcxZcv8kVzvOOJ1OWBiNVyFIBVu06AK96LTuhKUA9yYSujW7OBPg4YsuI02KH0WprnPUFxYTkcpMjyI7KwzwFpE=
+
+install:
+- ./bin/travis/install
+
+script:
+- ./bin/travis/test_coverage
+
+after_success:
+- ./bin/coveralls/push_coverage
