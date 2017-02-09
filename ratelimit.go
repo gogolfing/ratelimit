@@ -70,9 +70,9 @@ func (l *Limiter) Pop() interface{} {
 }
 
 //PopOk releases a value from l.
-//It works just like Pop, but has an extra return value that designates if l is
-//not closed and therefore legitimate.
-func (l *Limiter) PopOk() (interface{}, bool) {
+//It works just like Pop, but has an extra return value ok that designates if l
+//is not closed and value is therefore legitimate.
+func (l *Limiter) PopOk() (value interface{}, ok bool) {
 	v, ok := <-l.values
 	if !ok {
 		return nil, ok
